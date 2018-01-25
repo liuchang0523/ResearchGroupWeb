@@ -1,0 +1,26 @@
+<table class="table table-hover">
+<tbody>
+	{%- set prev_year = 1900 %}
+	{%- for entry in entries %}
+	<tr>
+		<td>
+			<span class="date">
+				{% if entry.fields['year'] != prev_year %}
+				<big><strong>{{ entry.fields['year'] }}</strong></big><br />
+				{% endif %}
+				{%- set prev_year = entry.fields['year'] %}
+				{{ entry.fields['month']|monthname }}
+			</span>
+		</td>
+		<td class="publication">
+			<span>
+				{{ entry|title }}.
+			</span>
+			<span>
+			 负责人: {{ entry.persons['author']|author_list }}. 
+			</span>
+		</td>
+	</tr>
+	{%- endfor %}
+</tbody>
+</table>

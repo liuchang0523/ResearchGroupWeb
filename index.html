@@ -1,0 +1,91 @@
+---
+layout: default
+title: Home
+notitle: true
+
+# groups of columns of {roles: list, width: num, image: bool}
+role-tables:
+- - roles: [faculty,postdoc]
+    width: 4
+    image: true
+  - roles: [grad]
+    width: 8
+    image: true
+- - roles: [collab, ugrad, ugrad-alum]
+    width: 5
+    image: false
+  - roles: [alum]
+    width: 7
+    image: false
+
+---
+
+<div class="jumbotron">
+    <p>
+    <font size="34">
+         <b><center>Computational Optics Imaging Lab</center></b>
+    </font>     
+    </p>
+    <!--
+    <div id="owl-demo" class="owl-carousel">
+    	<center>
+    		<a class="item"><img class="carousel-inner img-responsive img-rounded" src="/img/1.jpg" alt=""></a>
+    	</center>
+    	<center>
+    		<a class="item"><img class="carousel-inner img-responsive img-rounded" src="/img/2.jpg" alt=""></a>
+    	</center>
+    </div>
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <link href="css/owl.theme.css" rel="stylesheet">
+    <script src="http://cdn.staticfile.org/jquery/1.8.3/jquery.min.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script>
+    	$(function() {
+    		$('#owl-demo').owlCarousel({
+    			items: 1,
+    			autoHeight: true,
+    			autoWidth: true,
+    			autoPlay: true
+    		});
+    	});
+    </script>
+    -->
+</div>
+
+<section>
+    <h2>News</h2>
+    <ul class="news list-unstyled">
+        {% for post in site.posts limit: site.front_page_news %}
+            {% include news-item.html item=post %}
+        {% endfor %}
+    </ul>
+    {% assign numposts = site.posts | size %}
+    {% if numposts >= 1 %}
+        <p>
+            <span class="fa fa-fw fa-history"></span>
+            <a href="{{ site.base }}/blog.html">Older news&hellip;</a>
+        </p>
+    {% endif %}
+</section>
+
+<section>
+  <div>
+  <h2>Project</h2>
+  {% include projects.html %}
+  </div>
+</section>
+
+<div id="people">
+    <h2>People</h2>
+    {% for role-table in page.role-tables %}
+        <section class="people row justify-content-between">
+            {% for role-column in role-table %}
+                <div class="col-md-{{ role-column.width }}">
+                    {% for role in role-column.roles %}
+                        {% include role-people.html role=role image=role-column.image %}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </section>
+    {% endfor %}
+</div>

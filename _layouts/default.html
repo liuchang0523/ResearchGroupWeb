@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ site.name }}: {{ page.title }}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+              integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+              crossorigin="anonymous">
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{ site.base }}/css/group.css">
+    </head>
+    <body>
+        <div class="container">
+            <!-- This is a bit nasty, but it basically says be a column first, and on larger screens be a spaced out row -->
+            <div class="header d-flex
+                        flex-column
+                        flex-md-row justify-content-md-between">
+                <a href="{{ site.base }}/" class="">
+                    <img src="{{ site.base }}/img/logo.png"
+                         srcset="{{ site.base }}/img/logo@2x.png 2x"
+                         alt="Awesome" id="logo">
+                </a>
+                <ul class="nav nav-pills justify-content-center">
+
+                    {% assign shorturl = page.url | replace:'.html','' | replace:'index','' %}
+                    {% for item in site.navigation %}
+
+                        {% assign itemshorturl = item.link | replace:'.html','' %}
+
+                        {% assign maybe-active = '' %}
+                        {% if item.title == 'Research' and page.layout == 'project' %}
+                            {% assign maybe-active = 'active' %}
+                        {% endif %}
+                        {% if itemshorturl == shorturl or is-research %}
+                            {% assign maybe-active = 'active' %}
+                        {% endif %}
+
+                        <li class="nav-item">
+                            <a class="nav-link {{ maybe-active }}"
+                               href="{{ site.base }}{{ item.link }}">
+                                {{ item.title }}
+                            </a>
+                        </li>
+
+                    {% endfor %}
+
+                </ul>
+            </div>
+
+            {% if page.image %}
+                <img src="{{ page.image }}"
+                     alt="{{ page.title }}"
+                     style="max-width: 400px"
+                     class="img-fluid mx-auto d-block mb-4"/>
+            {% endif %}
+
+            {% if page.notitle != true %}
+                <h1>{{ page.title }}</h1>
+            {% endif %}
+
+            {{ content }}
+
+           <div class="footer">
+				  <p>
+				  <!--<img src="https://s01.flagcounter.com/count2/KyCh/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_5/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0">
+					<br />-->
+					地址：广东省深圳市南山区南海大道3688号
+					<br />
+					Copyright &copy; 2017 &nbsp; 深圳大学光电工程学院215
+					<!--<br />
+					邮编：518060 负责人电话：0755-26732931 传真：0755-26538580 电子邮箱：gds@szu.edu.cn-->
+				  </p>
+            </div>
+
+        </div> <!-- /container -->
+
+        <!-- Support retina images. -->
+        <script type="text/javascript"
+                src="{{ site.base }}/js/srcset-polyfill.js"></script>
+    </body>
+</html>

@@ -1,0 +1,10 @@
+<!-- //添加视频代码
+<div>
+    <center>
+    <video src="img/实验室网站.mp4" height="500" controls preload="metadata">
+    <source src="视频.mp4" type="video/mp4">//设置格式，解决兼容问题
+    <source src="视频.ogv" type="video/ogg">//若不支持MP4，则会继续ogv，webm
+    <source src="视频.webm" type="video/webm">
+    </center>
+</div>
+-->
