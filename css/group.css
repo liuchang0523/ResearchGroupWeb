@@ -57,7 +57,7 @@ ul.news > li {
     column-count: 2; } }
 @media (min-width: 768px) {
   .role.grad {
-    column-count: 2; }
+    column-count: 3; }
 
   .project-people {
     column-count: 3; }
