@@ -107,23 +107,3 @@ section {
 
 svg {
   vertical-align: middle; }
-  
-owl-demo {
-    width: 100%;
-    height: 100%;
-    vertical-align: middle;
-    margin-left: auto;
-    margin-right: auto;
-    margin: auto;
-}
-owl-demo .item {
-    display: block;
-    width: 100%;
-    margin: auto;
-}
-owl-demo img {
-    display: block;
-    width: 100%;
-    margin: auto;
-}
-  

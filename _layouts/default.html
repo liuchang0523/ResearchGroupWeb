@@ -56,6 +56,12 @@
                      style="max-width: 400px"
                      class="img-fluid mx-auto d-block mb-4"/>
             {% endif %}
+            {% if page.image2 %}
+                <img src="{{ page.image2 }}"
+                     alt="{{ page.title }}"
+                     style="max-width: 400px"
+                     class="img-fluid mx-auto d-block mb-4"/>
+            {% endif %}
 
             {% if page.notitle != true %}
                 <h1>{{ page.title }}</h1>

@@ -6,24 +6,23 @@ notitle: true
 # groups of columns of {roles: list, width: num, image: bool}
 role-tables:
 - - roles: [faculty,postdoc]
-    width: 4
+    width: 3
     image: true
   - roles: [grad]
-    width: 8
+    width: 9
     image: true
-- - roles: [collab, ugrad, ugrad-alum]
-    width: 5
-    image: false
-  - roles: [alum]
-    width: 7
-    image: false
-
+#- - roles: [collab, ugrad, ugrad-alum]
+#    width: 5
+#    image: false
+#  - roles: [alum]
+#    width: 7
+#    image: false
 ---
 
 <div class="jumbotron">
     <p>
     <font size="34">
-         <b><center>Computational Optics Imaging Lab</center></b>
+         <b><center>Computational Optical Imaging Lab</center></b>
     </font>     
     </p>
     <!--
@@ -60,7 +59,7 @@ role-tables:
         {% endfor %}
     </ul>
     {% assign numposts = site.posts | size %}
-    {% if numposts >= 1 %}
+    {% if numposts > site.front_page_news %}
         <p>
             <span class="fa fa-fw fa-history"></span>
             <a href="{{ site.base }}/blog.html">Older news&hellip;</a>
